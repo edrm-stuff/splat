@@ -7,10 +7,11 @@ client throws at us. Feed it a Pantone C code, a HEX, an RGB, or a CMYK value, a
 closest 1 Shot formula — then lets you scale the mix to however many parts you need and save your
 favorites for a print-to-PDF "receipt" at the bench.
 
-It's a small, local-first tool: no accounts, no backend. Your saved recipes live in a cookie
-in your own browser and never leave it. The only thing collected is privacy-friendly,
-cookieless visit counts (via Vercel Web Analytics) so we can see whether the beta is getting
-used — no personal data, no fingerprinting.
+It's a small, local-first tool — no accounts, no sign-up. Your saved recipes live right in
+your browser, which keeps things simple but comes with one catch: open SPLAT in a different
+browser or on another device, or clear your history, and your saved mixes will be gone. So
+hit **Print** on anything you want to keep — a printed (or saved-to-PDF) recipe sheet is your
+permanent copy.
 
 **Current version: v0.1.0 — early beta.** Feedback very welcome.
 
