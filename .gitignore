@@ -6,3 +6,10 @@ coverage
 data/source/*.pdf
 *.tgz
 .claude/
+
+# Editor / OS cruft
+.DS_Store
+.idea/
+.vscode/
+*.local
+*.log
