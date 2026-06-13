@@ -1,0 +1,1012 @@
+:root {
+  color-scheme: light;
+  font-family:
+    "MS Sans Serif",
+    Tahoma,
+    "Segoe UI",
+    system-ui,
+    sans-serif;
+  color: #000000;
+  background: #008080;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100dvh;
+  background:
+    linear-gradient(90deg, rgb(255 255 255 / 0.06) 1px, transparent 1px),
+    linear-gradient(0deg, rgb(0 0 0 / 0.08) 1px, transparent 1px),
+    #008080;
+  background-size: 16px 16px, 16px 16px, auto;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+button:focus-visible,
+input:focus-visible,
+summary:focus-visible {
+  outline: 2px dotted #111;
+  outline-offset: 3px;
+}
+
+.app-shell {
+  width: min(1360px, 100%);
+  margin: 0 auto;
+  padding: 18px;
+}
+
+.hero-band {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 390px);
+  gap: 16px;
+  align-items: end;
+  padding: 14px 0 18px;
+}
+
+.hero-band h1,
+.panel h2,
+.receipt-print h2,
+.receipt-print h3 {
+  margin: 0;
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+.hero-band h1 {
+  max-width: 790px;
+  font-family:
+    Impact,
+    Haettenschweiler,
+    "Arial Black",
+    sans-serif;
+  font-size: clamp(42px, 8vw, 108px);
+  font-weight: 900;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 0 #f2cd49, 4px 4px 0 #000080;
+}
+
+.hero-band p {
+  max-width: 680px;
+  margin: 18px 0 0;
+  color: #000000;
+  font-size: 17px;
+  line-height: 1.48;
+}
+
+.eyebrow {
+  display: block;
+  margin-bottom: 8px;
+  color: #000080;
+  font-family: "Courier New", monospace;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.stats-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border: 2px solid;
+  border-color: #ffffff #808080 #808080 #ffffff;
+  background: #c0c0c0;
+  box-shadow: 4px 4px 0 rgb(0 0 0 / 0.35);
+}
+
+.stats-strip span {
+  display: grid;
+  gap: 4px;
+  min-height: 76px;
+  padding: 12px;
+  border-left: 1px solid #808080;
+  color: #000000;
+  font-family: "Courier New", monospace;
+  font-size: 12px;
+}
+
+.stats-strip span:first-child {
+  border-left: 0;
+}
+
+.stats-strip strong {
+  color: #000000;
+  font-family: "Arial Black", Impact, sans-serif;
+  font-size: 28px;
+  line-height: 1;
+}
+
+.workspace {
+  display: grid;
+  grid-template-columns: minmax(320px, 420px) minmax(0, 1fr);
+  gap: 16px;
+  padding-top: 10px;
+}
+
+.left-stack,
+.results-stack,
+.right-rail {
+  display: grid;
+  gap: 16px;
+  align-content: start;
+}
+
+.left-stack {
+  position: sticky;
+  top: 14px;
+}
+
+.panel {
+  border: 2px solid;
+  border-color: #ffffff #808080 #808080 #ffffff;
+  border-radius: 0;
+  background: #c0c0c0;
+  box-shadow: 5px 5px 0 rgb(0 0 0 / 0.42);
+}
+
+.window-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 30px;
+  padding: 5px 8px;
+  border-bottom: 2px solid #808080;
+  color: #ffffff;
+  background: linear-gradient(90deg, #000080, #1084d0);
+  font-family: "Courier New", monospace;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.input-panel,
+.recipe-panel,
+.matches-panel,
+.result-summary,
+.saved-panel,
+.empty-state {
+  padding: 0;
+}
+
+.panel-heading,
+.saved-empty,
+.recipe-actions,
+.recipe-controls,
+.recipe-header,
+.notice,
+.swatch-card,
+.source-detail,
+.match-list,
+.recipe-table,
+.colophon-copy {
+  margin-right: 14px;
+  margin-left: 14px;
+}
+
+.panel-heading {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 14px;
+  margin-bottom: 14px;
+}
+
+.panel-heading h2,
+.empty-state h2 {
+  font-size: 27px;
+}
+
+.mode-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  margin: 0 14px 14px;
+  border: 2px solid;
+  border-color: #808080 #ffffff #ffffff #808080;
+  background: #808080;
+}
+
+.mode-grid button,
+.print-button,
+.heart-button,
+.remove-button,
+.input-with-button button {
+  border: 2px solid;
+  border-color: #ffffff #808080 #808080 #ffffff;
+  border-radius: 0;
+  color: #000000;
+  background: #c0c0c0;
+  box-shadow: 1px 1px 0 rgb(0 0 0 / 0.22);
+  font-weight: 700;
+}
+
+.mode-grid button {
+  min-height: 42px;
+}
+
+.mode-grid button.active,
+.mode-grid button[aria-selected="true"] {
+  color: #ffffff;
+  border-color: #000000 #ffffff #ffffff #000000;
+  background: #000080;
+  box-shadow: inset 2px 2px 0 rgb(0 0 0 / 0.35);
+}
+
+.input-field {
+  display: grid;
+  gap: 8px;
+  margin: 0 14px 14px;
+  color: #000000;
+  font-family: "Courier New", monospace;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.input-with-button {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 46px;
+  gap: 8px;
+}
+
+.input-with-button input,
+.scale-control input {
+  width: 100%;
+  min-height: 46px;
+  border: 2px solid;
+  border-color: #808080 #ffffff #ffffff #808080;
+  border-radius: 0;
+  padding: 0 12px;
+  color: #000000;
+  background: #ffffff;
+  box-shadow: inset 2px 2px 0 rgb(0 0 0 / 0.12);
+  outline: none;
+}
+
+.input-with-button input[aria-invalid="true"] {
+  background: #fff0f0;
+  border-color: #800000 #ffffff #ffffff #800000;
+}
+
+.input-with-button button {
+  display: grid;
+  min-width: 46px;
+  min-height: 46px;
+  place-items: center;
+}
+
+.mode-grid button:active,
+.input-with-button button:active,
+.match-select:active,
+.heart-button:active,
+.print-button:active,
+.remove-button:active {
+  border-color: #808080 #ffffff #ffffff #808080;
+  box-shadow: inset 2px 2px 0 rgb(0 0 0 / 0.22);
+  transform: translate(1px, 1px);
+}
+
+.swatch-card {
+  display: grid;
+  grid-template-columns: 112px minmax(0, 1fr);
+  gap: 14px;
+  align-items: center;
+  margin-top: 14px;
+  margin-bottom: 14px;
+  padding: 12px;
+  border: 2px solid;
+  border-color: #808080 #ffffff #ffffff #808080;
+  background: #d4d0c8;
+}
+
+.large-swatch,
+.match-swatch,
+.saved-swatch,
+.receipt-swatch,
+.recipe-swatch,
+.paint-chip {
+  border: 2px solid;
+  border-color: #000000 #ffffff #ffffff #000000;
+  box-shadow: inset 1px 1px 0 rgb(0 0 0 / 0.2);
+}
+
+.large-swatch {
+  aspect-ratio: 1;
+}
+
+.swatch-card strong {
+  display: block;
+  margin-bottom: 7px;
+  font-family: "Courier New", monospace;
+  font-size: 22px;
+  text-transform: uppercase;
+}
+
+.swatch-card p,
+.notice p,
+.result-summary p,
+.empty-state p,
+.recipe-header p,
+.colophon-copy p,
+.source-detail p,
+.saved-empty p,
+.receipt-print p {
+  margin: 0;
+  color: #000000;
+  line-height: 1.45;
+}
+
+.notice {
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  gap: 10px;
+  align-items: start;
+  margin-top: 14px;
+  margin-bottom: 14px;
+  padding: 12px;
+  border: 2px solid;
+  border-color: #808000 #ffffff #ffffff #808000;
+  color: #000000;
+  background: #fff4a8;
+}
+
+.recipe-favorites-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(290px, 360px);
+  gap: 16px;
+  align-items: start;
+}
+
+.recipe-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 72px;
+  gap: 12px;
+  align-items: center;
+  margin-top: 14px;
+  margin-bottom: 14px;
+  padding: 12px;
+  border: 2px solid;
+  border-color: #808080 #ffffff #ffffff #808080;
+  background: #d4d0c8;
+}
+
+.recipe-swatch {
+  width: 68px;
+  aspect-ratio: 1;
+}
+
+.recipe-header-copy {
+  min-width: 0;
+}
+
+.recipe-header-copy h2 {
+  margin-bottom: 8px;
+  font-family: "Arial Black", Impact, sans-serif;
+  font-size: clamp(24px, 3vw, 38px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-transform: uppercase;
+}
+
+.recipe-header-footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  justify-content: space-between;
+  grid-column: 1 / -1;
+}
+
+.recipe-controls {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  align-items: end;
+  margin-bottom: 14px;
+}
+
+.scale-control,
+.recipe-total {
+  display: grid;
+  gap: 7px;
+  color: #000000;
+  font-family: "Courier New", monospace;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.recipe-total {
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+.heart-button,
+.print-button,
+.remove-button {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 0 12px;
+}
+
+.heart-button.saved {
+  color: #ffffff;
+  background: #9b1c1c;
+}
+
+.heart-button.saved svg {
+  fill: currentColor;
+}
+
+.heart-button.compact {
+  width: 36px;
+  min-width: 36px;
+  height: 36px;
+  min-height: 36px;
+  padding: 0;
+}
+
+.match-list {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.match-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  gap: 10px;
+  align-items: center;
+  padding: 10px;
+  border: 2px solid;
+  border-color: #ffffff #808080 #808080 #ffffff;
+  background: #d4d0c8;
+}
+
+.match-card.selected {
+  background: #fff4a8;
+}
+
+.match-select {
+  display: grid;
+  grid-template-columns: 54px minmax(0, 1fr);
+  gap: 12px;
+  align-items: center;
+  width: 100%;
+  min-height: 54px;
+  border: 0;
+  color: #000000;
+  background: transparent;
+  box-shadow: none;
+  text-align: left;
+}
+
+.match-swatch {
+  width: 52px;
+  aspect-ratio: 1;
+}
+
+.match-main {
+  display: grid;
+  gap: 5px;
+}
+
+.match-main span {
+  color: #000000;
+  font-family: "Courier New", monospace;
+  font-size: 13px;
+}
+
+.recipe-header-footer .heart-button {
+  min-width: 136px;
+}
+
+.confidence {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 96px;
+  min-height: 28px;
+  border: 2px solid;
+  border-color: #ffffff #000000 #000000 #ffffff;
+  padding: 0 8px;
+  color: #000000;
+  font-family: Tahoma, "MS Sans Serif", sans-serif;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0;
+  line-height: 1;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.confidence.excellent {
+  background: #8ee08e;
+}
+
+.confidence.good {
+  background: #fff36a;
+}
+
+.confidence.rough {
+  background: #f5b642;
+}
+
+.confidence.exploratory {
+  background: #ff9a9a;
+}
+
+.recipe-total span {
+  color: #000000;
+  font-family: "Courier New", monospace;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.recipe-total strong {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 46px;
+  border: 2px solid;
+  border-color: #808080 #ffffff #ffffff #808080;
+  padding: 0 12px;
+  background: #ffffff;
+  box-shadow: inset 2px 2px 0 rgb(0 0 0 / 0.12);
+  font-family: "Courier New", monospace;
+  font-size: 18px;
+}
+
+.recipe-table {
+  display: grid;
+  overflow: hidden;
+  margin-bottom: 14px;
+  border: 2px solid;
+  border-color: #808080 #ffffff #ffffff #808080;
+}
+
+.recipe-row {
+  display: grid;
+  grid-template-columns: minmax(220px, 1.4fr) minmax(128px, 0.8fr) 90px 110px;
+  gap: 12px;
+  align-items: center;
+  min-height: 62px;
+  padding: 10px 12px;
+  border-top: 1px solid #808080;
+  background: #ffffff;
+}
+
+.recipe-row:nth-child(even) {
+  background: #f0f0f0;
+}
+
+.recipe-row:first-child {
+  border-top: 0;
+}
+
+.recipe-head {
+  min-height: 38px;
+  color: #ffffff;
+  background: #000080;
+  font-family: "Courier New", monospace;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.paint-cell {
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr);
+  gap: 10px;
+  align-items: center;
+}
+
+.paint-cell span:last-child {
+  display: grid;
+  gap: 3px;
+}
+
+.paint-cell strong {
+  font-family: "Courier New", monospace;
+  font-size: 15px;
+}
+
+.paint-cell span span {
+  color: #000000;
+  font-size: 13px;
+}
+
+.paint-chip {
+  width: 32px;
+  aspect-ratio: 1;
+}
+
+.source-detail {
+  margin-top: 0;
+  margin-bottom: 14px;
+  color: #000000;
+}
+
+.source-detail summary {
+  cursor: pointer;
+  font-family: "Courier New", monospace;
+  font-weight: 700;
+}
+
+.source-detail p {
+  margin-top: 8px;
+}
+
+.saved-heading {
+  align-items: start;
+}
+
+.print-button {
+  white-space: nowrap;
+}
+
+.saved-empty {
+  display: grid;
+  grid-template-columns: 24px 1fr;
+  gap: 10px;
+  align-items: start;
+  margin-top: 14px;
+  margin-bottom: 14px;
+  padding: 12px;
+  border: 2px dashed #808080;
+  background: #d4d0c8;
+}
+
+.saved-list {
+  display: grid;
+  gap: 10px;
+  margin: 0 14px 14px;
+}
+
+.saved-item {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr) auto;
+  gap: 10px;
+  align-items: start;
+  padding: 10px;
+  border: 2px solid;
+  border-color: #ffffff #808080 #808080 #ffffff;
+  background: #d4d0c8;
+}
+
+.saved-swatch {
+  width: 40px;
+  aspect-ratio: 1;
+}
+
+.saved-copy {
+  display: grid;
+  gap: 3px;
+}
+
+.saved-copy strong {
+  font-family: "Arial Black", Impact, sans-serif;
+  text-transform: uppercase;
+}
+
+.saved-copy span {
+  color: #000000;
+  font-family: "Courier New", monospace;
+  font-size: 12px;
+}
+
+.remove-button {
+  min-width: 34px;
+  min-height: 34px;
+  padding: 0;
+}
+
+.empty-state {
+  display: grid;
+  justify-items: start;
+  gap: 10px;
+  min-height: 190px;
+  align-content: start;
+  color: #000080;
+}
+
+.empty-state > svg,
+.empty-state > h2,
+.empty-state > p {
+  margin-right: 14px;
+  margin-left: 14px;
+}
+
+.empty-state > svg {
+  margin-top: 14px;
+}
+
+.receipt-print {
+  display: none;
+}
+
+.colophon-panel {
+  margin-top: 0;
+}
+
+.notepad-menu {
+  display: flex;
+  gap: 18px;
+  min-height: 24px;
+  padding: 4px 8px;
+  border-bottom: 2px solid #808080;
+  background: #c0c0c0;
+  font-family: Tahoma, "MS Sans Serif", sans-serif;
+  font-size: 12px;
+}
+
+.colophon-copy {
+  display: grid;
+  gap: 8px;
+  margin-top: 14px;
+  margin-bottom: 14px;
+  padding: 12px;
+  border: 2px solid;
+  border-color: #808080 #ffffff #ffffff #808080;
+  background: #ffffff;
+  font-family: "Courier New", monospace;
+  font-size: 13px;
+}
+
+.colophon-copy strong {
+  font-family: Tahoma, "MS Sans Serif", sans-serif;
+}
+
+.colophon-copy a {
+  color: #000080;
+  font-weight: 700;
+}
+
+.receipt-header,
+.receipt-card,
+.receipt-footer {
+  color: #17130f;
+  background: #fff8dc;
+}
+
+@media (max-width: 1080px) {
+  .workspace,
+  .hero-band {
+    grid-template-columns: 1fr;
+  }
+
+  .left-stack {
+    position: static;
+  }
+
+  .stats-strip {
+    width: 100%;
+  }
+}
+
+@media (max-width: 760px) {
+  .app-shell {
+    padding: 12px;
+  }
+
+  .hero-band h1 {
+    font-size: clamp(38px, 13vw, 64px);
+    text-shadow: 1px 1px 0 #f2cd49, 2px 2px 0 #000080;
+  }
+
+  .hero-band p {
+    font-size: 15px;
+  }
+
+  .stats-strip {
+    grid-template-columns: 1fr;
+  }
+
+  .stats-strip span {
+    border-top: 1px solid #808080;
+    border-left: 0;
+  }
+
+  .stats-strip span:first-child {
+    border-top: 0;
+  }
+
+  .mode-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .swatch-card,
+  .recipe-favorites-grid,
+  .recipe-controls,
+  .match-select,
+  .recipe-row,
+  .saved-item {
+    grid-template-columns: 1fr;
+  }
+
+  .recipe-header {
+    grid-template-columns: minmax(0, 1fr) 64px;
+  }
+
+  .recipe-swatch {
+    width: 64px;
+  }
+
+  .recipe-header-footer {
+    grid-column: 1 / -1;
+    justify-content: flex-start;
+  }
+
+  .match-card {
+    grid-template-columns: minmax(0, 1fr) 42px;
+  }
+
+  .match-card .confidence {
+    grid-column: 1 / -1;
+    width: 100%;
+  }
+
+  .match-select {
+    grid-template-columns: 54px minmax(0, 1fr);
+  }
+
+  .match-swatch {
+    width: 100%;
+    max-width: 86px;
+  }
+
+  .recipe-head {
+    display: none;
+  }
+
+  .saved-heading {
+    flex-direction: column;
+  }
+
+  .print-button,
+  .heart-button:not(.compact) {
+    width: 100%;
+  }
+
+  .recipe-header-footer .heart-button {
+    width: auto;
+  }
+}
+
+@media print {
+  @page {
+    size: 80mm auto;
+    margin: 6mm;
+  }
+
+  :root,
+  body {
+    color: #111;
+    background: #fff;
+  }
+
+  .screen-app {
+    display: none;
+  }
+
+  .receipt-print {
+    display: block;
+    width: 100%;
+    max-width: 80mm;
+    margin: 0 auto;
+    font-family: "Courier New", monospace;
+    font-size: 10pt;
+  }
+
+  .receipt-header {
+    padding: 0 0 8mm;
+    border-bottom: 1px dashed #111;
+    text-align: center;
+  }
+
+  .receipt-header p {
+    margin: 0 0 2mm;
+    color: #111;
+    text-transform: uppercase;
+  }
+
+  .receipt-header h2 {
+    margin: 0 0 2mm;
+    font-size: 16pt;
+    text-transform: uppercase;
+  }
+
+  .receipt-card {
+    break-inside: avoid;
+    padding: 5mm 0;
+    border-bottom: 1px dashed #111;
+  }
+
+  .receipt-card-header {
+    display: grid;
+    grid-template-columns: 12mm 1fr;
+    gap: 3mm;
+    align-items: start;
+  }
+
+  .receipt-card h3 {
+    margin: 0 0 1mm;
+    font-size: 13pt;
+    text-transform: uppercase;
+  }
+
+  .receipt-card p,
+  .receipt-muted {
+    color: #111;
+  }
+
+  .receipt-swatch {
+    width: 10mm;
+    aspect-ratio: 1;
+    border: 1px solid #111;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  .receipt-meta {
+    display: grid;
+    gap: 1mm;
+    margin: 3mm 0;
+  }
+
+  .receipt-lines {
+    display: grid;
+    gap: 2mm;
+  }
+
+  .receipt-line {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1mm;
+    padding-bottom: 2mm;
+    border-bottom: 1px dotted #777;
+  }
+
+  .receipt-line span,
+  .receipt-line strong {
+    display: block;
+  }
+
+  .receipt-source {
+    margin-top: 3mm;
+    font-size: 8pt;
+  }
+
+  .receipt-footer {
+    padding-top: 4mm;
+    text-align: center;
+    font-size: 8pt;
+  }
+}

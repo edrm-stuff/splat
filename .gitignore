@@ -1,0 +1,8 @@
+node_modules
+dist
+.vite
+.npm-cache
+coverage
+data/source/*.pdf
+*.tgz
+.claude/
