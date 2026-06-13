@@ -11,6 +11,7 @@
     "generate:data": "tsx scripts/generate-data.ts"
   },
   "dependencies": {
+    "@vercel/analytics": "^2.0.1",
     "lucide-react": "^0.468.0",
     "pantone-colors": "^1.0.3",
     "react": "^18.3.1",
