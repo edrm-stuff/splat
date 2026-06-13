@@ -372,6 +372,11 @@ summary:focus-visible {
   background: #fff4a8;
 }
 
+.notice.celebrate {
+  border-color: #008080 #ffffff #ffffff #008080;
+  background: #c8f0e6;
+}
+
 .recipe-favorites-grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(290px, 360px);

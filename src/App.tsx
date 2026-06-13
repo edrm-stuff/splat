@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from "react";
-import { CircleAlert, FlaskConical, Heart, Palette, Printer, RotateCcw, Search, Trash2 } from "lucide-react";
+import { CircleAlert, FlaskConical, Heart, Palette, PartyPopper, Printer, RotateCcw, Search, Trash2 } from "lucide-react";
 import { PAINT_BASES, paintBaseByCode } from "./data/paintBases";
 import { PANTONE_FORMULAS } from "./generated/pantoneFormulas";
 import { rgbToHex } from "./lib/colorMath";
@@ -158,6 +158,18 @@ function RecipePanel({
   const totalParts = getPartTotal(formula.components);
   const swatch = getSwatchForFormula(formula);
 
+  const mysteryComponents = formula.components.filter(
+    (component) => !paintBaseByCode.has(component.paintCode)
+  );
+  const mysteryShare =
+    totalParts > 0
+      ? (mysteryComponents
+          .filter((component) => component.unit === "part")
+          .reduce((sum, component) => sum + component.amount, 0) /
+          totalParts) *
+        100
+      : 0;
+
   return (
     <section className="panel recipe-panel" aria-label={`Recipe for Pantone ${formula.pantoneCode} C`}>
       <div className="window-title">
@@ -182,6 +194,19 @@ function RecipePanel({
           />
         </div>
       </div>
+
+      {mysteryComponents.length > 0 ? (
+        <div className="notice celebrate" role="status">
+          <PartyPopper size={18} aria-hidden="true" />
+          <p>
+            🎉 You found The One. This formula calls for base{" "}
+            <strong>{mysteryComponents.map((component) => component.paintCode).join(", ")}</strong>,
+            which isn’t in the 1 Shot lineup we have — almost certainly a quirk in the original
+            source sheet. Good news: it’s only about {formatNumber(mysteryShare, 1)}% of the mix, so
+            you should be just fine. Brush-test to be sure.
+          </p>
+        </div>
+      ) : null}
 
       <div className="recipe-controls">
         <div className="recipe-total">

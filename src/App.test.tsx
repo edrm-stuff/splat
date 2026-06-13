@@ -60,6 +60,18 @@ describe("App", () => {
     assert.ok(within(colophon).getByText(/OpenAI Codex assistance/));
   });
 
+  it("shows the unknown-base disclaimer only for affected formulas", () => {
+    render(<App />);
+
+    // Default Pantone 185 has only known bases — no disclaimer.
+    assert.equal(screen.queryByText(/You found The One/), null);
+
+    // Pantone 5595 references base 513L, which has no known 1 Shot base.
+    fireEvent.change(inputField(), { target: { value: "5595" } });
+    assert.ok(screen.getByText(/You found The One/));
+    assert.ok(screen.getAllByText(/513L/).length >= 1);
+  });
+
   it("finds nearest matches from RGB input", async () => {
     render(<App />);
 
